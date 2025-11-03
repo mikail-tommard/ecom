@@ -7,12 +7,12 @@ import (
 )
 
 type Config struct {
-	Host string
-	Port string 
-	User string
+	Host     string
+	Port     string
+	User     string
 	Password string
-	DBName string
-	SSLMode string
+	DBName   string
+	SSLMode  string
 }
 
 func NewPostgreSQLStorage(cfg Config) (*sql.DB, error) {

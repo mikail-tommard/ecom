@@ -9,16 +9,14 @@ import (
 	"github.com/mikail-tommard/ecom/db"
 )
 
-
-
 func main() {
 	db, err := db.NewPostgreSQLStorage(db.Config{
-		Host: config.Envs.DBHost,
-		Port: config.Envs.DBPort,
-		User: config.Envs.DBUser,
+		Host:     config.Envs.DBHost,
+		Port:     config.Envs.DBPort,
+		User:     config.Envs.DBUser,
 		Password: config.Envs.DBPassword,
-		DBName: config.Envs.DBName,
-		SSLMode: config.Envs.DBSSLMode,
+		DBName:   config.Envs.DBName,
+		SSLMode:  config.Envs.DBSSLMode,
 	})
 	if err != nil {
 		log.Fatal(err)

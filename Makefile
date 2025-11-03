@@ -7,5 +7,8 @@ test:
 run: build
 	@./bin/ecom
 
+fmt:
+	@go fmt ./...
+
 clean:
 	@rm -rf bin
