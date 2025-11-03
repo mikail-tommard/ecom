@@ -6,3 +6,6 @@ test:
 
 run: build
 	@./bin/ecom
+
+clean:
+	@rm -rf bin
