@@ -3,7 +3,7 @@ package types
 import "time"
 
 type UserStore interface {
-	GetUsetByEmail(email string) (*User, error)
+	GetUserByEmail(email string) (*User, error)
 	GetUserByID(id int) (*User, error)
 	CreateUser(User) error
 }
@@ -11,10 +11,10 @@ type UserStore interface {
 type mockUserStore struct{}
 
 type RegisterUserPayload struct {
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Email     string `json:"email"`
-	Password  string `json:"password"`
+	FirstName string `json:"firstName" validate:"required"`
+	LastName  string `json:"lastName" validate:"required"`
+	Email     string `json:"email" validate:"required,email"`
+	Password  string `json:"password" validate:"required,min=3,max=130"`
 }
 
 type User struct {
@@ -22,6 +22,6 @@ type User struct {
 	FirstName string    `json:"firstName"`
 	LastName  string    `json:"lastName"`
 	Email     string    `json:"email"`
-	Password  string    `json:"password"`
+	Password  string    `json:"-"`
 	CreatedAt time.Time `json:"createdAt"`
 }
