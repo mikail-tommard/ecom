@@ -58,7 +58,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	
 }
 
 func initStorage(db *sql.DB) {
